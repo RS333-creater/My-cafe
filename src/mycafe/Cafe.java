@@ -10,13 +10,15 @@ public class Cafe {
     private String businessHours; 
     private int rating;
     private List<String> photos;
+    private List<VisitRecord> visitRecords;
 
-    public Cafe(String name, String address) {
+    public Cafe(String name, String address, int rating) {
         this.name = name;
         this.address = address;
         this.businessHours = "未登録"; 
         this.rating = 0; 
         this.photos = new ArrayList<>(); 
+        this.visitRecords = new ArrayList<>();
     }
 
     public String getName() {
@@ -51,5 +53,13 @@ public class Cafe {
     
     public void addPhoto(String photoPath) {
         this.photos.add(photoPath);
+    }
+    
+    public void addVisitRecord(VisitRecord record) {
+    	this.visitRecords.add(record);
+    }
+    
+    public List<VisitRecord> getVisitRecords() {
+    	return this.visitRecords;
     }
 }

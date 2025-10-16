@@ -1,5 +1,6 @@
 package mycafe;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class CafeApp {
     		System.out.println("\n--- My Cafe メニュー ---");
     		System.out.println("1: 喫茶店を登録する");
             System.out.println("2: 登録済みの喫茶店を見る");
+            System.out.println("3: 訪問を記録する");
             System.out.println("9: アプリを終了する");
             System.out.print("操作を選んでください > ");
     		
@@ -29,7 +31,10 @@ public class CafeApp {
             	System.out.println("住所を入力してください > ");
             	String address = scanner.next();
             	
-            	Cafe newCafe = new Cafe(name,address);
+            	System.out.println("評価を入力してください > ");
+            	int rating = scanner.nextInt();
+            	
+            	Cafe newCafe = new Cafe(name,address,rating);
             	
             	cafeList.add(newCafe);
             	
@@ -48,7 +53,27 @@ public class CafeApp {
                         System.out.println("--------------------");
                 	}
                 }
-                
+            } else if (choice == 3) {
+            	System.out.println("訪問を記録する喫茶店を選んでください。");
+            	
+            	for (int i = 0; i < cafeList.size(); i++) {
+            		System.out.println((i + 1) + ": " + cafeList.get(i).getName());
+            	}
+            	
+            	System.out.println("番号を入力 > ");
+            	int cafeNum = scanner.nextInt();
+            	scanner.nextLine();
+            	Cafe selectedCafe = cafeList.get(cafeNum - 1);
+            	
+            	System.out.println("コメントを入力してください。");
+            	String comment = scanner.nextLine();
+            	
+            	VisitRecord newRecord = new VisitRecord(LocalDate.now());
+            	newRecord.setComment(comment);
+            	
+            	selectedCafe.addVisitRecord(newRecord);
+            	
+            	System.out.println(selectedCafe.getName() + "に訪問記録を追加しました。");
                 
             } else if (choice == 9) {
                 System.out.println("アプリを終了します。");
