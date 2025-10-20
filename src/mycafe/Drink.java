@@ -1,6 +1,8 @@
 package mycafe;
 
-public class Drink extends MenuItem {
+import java.io.Serializable;
+
+public class Drink extends MenuItem implements Serializable {
 	private boolean isHot;
 	
 	public Drink(String name, int price, boolean isHot, String text) {

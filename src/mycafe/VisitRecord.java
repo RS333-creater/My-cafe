@@ -1,10 +1,11 @@
 package mycafe;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VisitRecord {
+public class VisitRecord implements Serializable {
 	
 	private LocalDate visitDate ;
 	private List<MenuItem> orderedItems;

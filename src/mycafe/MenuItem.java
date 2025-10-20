@@ -1,6 +1,8 @@
 package mycafe;
 
-public abstract class MenuItem {
+import java.io.Serializable;
+
+public abstract class MenuItem implements Serializable {
 	private String name;
 	private int price;
 	private String text;

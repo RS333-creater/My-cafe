@@ -1,9 +1,10 @@
 package mycafe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cafe {
+public class Cafe implements Serializable {
 
     private String name;
     private String address;
@@ -61,5 +62,11 @@ public class Cafe {
     
     public List<VisitRecord> getVisitRecords() {
     	return this.visitRecords;
+    }
+    public void setName(String name) {
+    	this.name = name;
+    }
+    public void setAddress(String address) {
+    	this.address = address;
     }
 }
